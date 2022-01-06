@@ -68,7 +68,7 @@ class QRecorder:
             except KeyboardInterrupt:
                 self.recording=False
                 self.record_button.configure(text="Start Recording")
-                
+        self.VIDEO.release()        
 
                 
     
