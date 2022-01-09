@@ -17,22 +17,22 @@ class Recorder:
         self.FOURCC=cv2.VideoWriter_fourcc("m","p","4","v")
         self.FPS=12.0
         self.TIMESTAMP=str(datetime.datetime.now().strftime("%d-%m-%y %H-%M-%S"))
-        self.FILENAME="{}.mp4".format(TIMESTAMP)
+        self.FILENAME="{}.mp4".format(self.TIMESTAMP)
         self.SIZE=(pyautogui.size()[0],pyautogui.size()[1])
 
-        self.video=cv2.VideoWriter(FILENAME,FOURCC,FPS,SIZE)
+        self.video=cv2.VideoWriter(self.FILENAME,self.FOURCC,self.FPS,self.SIZE)
 
     def record(self):
         while True:
-            image=pyautogui.screenshot()
-            image=np.array(image)
-            image=cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            self.image=pyautogui.screenshot()
+            self.image=np.array(self.image)
+            self.image=cv2.cvtColor(self.image, cv2.COLOR_BGR2RGB)
 
-            video.write(image)
-            cv2.imshow('Recording',image)
+            self.video.write(self.image)
+            cv2.imshow('Recording',self.image)
             if cv2.waitKey(1) & 0xFF==ord('q'):
                 break
-        video.release()
+        self.video.release()
         cv2.destroyAllWindows()
 
 print('''
