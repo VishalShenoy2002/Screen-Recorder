@@ -22,7 +22,7 @@ class Recorder:
 
         self.video=cv2.VideoWriter(FILENAME,FOURCC,FPS,SIZE)
 
-    def record():
+    def record(self):
         while True:
             image=pyautogui.screenshot()
             image=np.array(image)
